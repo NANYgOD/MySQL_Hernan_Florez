@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: localhost    Database: super_tienda
+-- Host: localhost    Database: tienda
 -- ------------------------------------------------------
 -- Server version	8.3.0
 
@@ -16,32 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `factura`
+-- Table structure for table `municipio`
 --
 
-DROP TABLE IF EXISTS `factura`;
+DROP TABLE IF EXISTS `municipio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `factura` (
-  `idfactura` int NOT NULL AUTO_INCREMENT,
-  `fecha` date DEFAULT NULL,
-  `idvendedor` int DEFAULT NULL,
-  `idcliente` int DEFAULT NULL,
-  PRIMARY KEY (`idfactura`),
-  KEY `idvendedor` (`idvendedor`),
-  KEY `idcliente` (`idcliente`),
-  CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`idvendedor`) REFERENCES `vendedor` (`idvendedor`),
-  CONSTRAINT `factura_ibfk_2` FOREIGN KEY (`idcliente`) REFERENCES `cliente` (`idcliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `municipio` (
+  `idmunicipio` int NOT NULL AUTO_INCREMENT,
+  `municipio` varchar(30) DEFAULT NULL,
+  `iddepartamento` int DEFAULT NULL,
+  PRIMARY KEY (`idmunicipio`),
+  KEY `iddepartamento` (`iddepartamento`),
+  CONSTRAINT `municipio_ibfk_1` FOREIGN KEY (`iddepartamento`) REFERENCES `departamento` (`iddepartamento`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `factura`
+-- Dumping data for table `municipio`
 --
 
-LOCK TABLES `factura` WRITE;
-/*!40000 ALTER TABLE `factura` DISABLE KEYS */;
-/*!40000 ALTER TABLE `factura` ENABLE KEYS */;
+LOCK TABLES `municipio` WRITE;
+/*!40000 ALTER TABLE `municipio` DISABLE KEYS */;
+INSERT INTO `municipio` VALUES (1,'PASTO',1),(2,'SAMANIEGO',1),(3,'MOCOA',2),(4,'VILLAGARZON',2),(5,'PITALITO',3),(6,'NEIVA',3),(7,'BARCELONA',4),(8,'MIAMI',5),(9,'PASTO',1),(10,'SAMANIEGO',1),(11,'MOCOA',2),(12,'VILLAGARZON',2),(13,'PITALITO',3),(14,'NEIVA',3),(15,'BARCELONA',4),(16,'MIAMI',5),(17,'PASTO',1),(18,'SAMANIEGO',1),(19,'MOCOA',2),(20,'VILLAGARZON',2),(21,'PITALITO',3),(22,'NEIVA',3),(23,'BARCELONA',4),(24,'MIAMI',5);
+/*!40000 ALTER TABLE `municipio` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-06 21:10:42
+-- Dump completed on 2024-09-06 22:07:57

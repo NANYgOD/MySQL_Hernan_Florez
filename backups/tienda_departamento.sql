@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: localhost    Database: super_tienda
+-- Host: localhost    Database: tienda
 -- ------------------------------------------------------
 -- Server version	8.3.0
 
@@ -16,30 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `producto`
+-- Table structure for table `departamento`
 --
 
-DROP TABLE IF EXISTS `producto`;
+DROP TABLE IF EXISTS `departamento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `producto` (
-  `idproducto` int NOT NULL AUTO_INCREMENT,
-  `producto` varchar(30) DEFAULT NULL,
-  `costo` int DEFAULT NULL,
-  `idtipo_producto` int DEFAULT NULL,
-  PRIMARY KEY (`idproducto`),
-  KEY `idtipo_producto` (`idtipo_producto`),
-  CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`idtipo_producto`) REFERENCES `tipo_producto` (`idtipo_producto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `departamento` (
+  `iddepartamento` int NOT NULL AUTO_INCREMENT,
+  `departamento` varchar(30) DEFAULT NULL,
+  `idpais` int DEFAULT NULL,
+  PRIMARY KEY (`iddepartamento`),
+  KEY `idpais` (`idpais`),
+  CONSTRAINT `departamento_ibfk_1` FOREIGN KEY (`idpais`) REFERENCES `pais` (`idpais`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `producto`
+-- Dumping data for table `departamento`
 --
 
-LOCK TABLES `producto` WRITE;
-/*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-/*!40000 ALTER TABLE `producto` ENABLE KEYS */;
+LOCK TABLES `departamento` WRITE;
+/*!40000 ALTER TABLE `departamento` DISABLE KEYS */;
+INSERT INTO `departamento` VALUES (1,'NARIÑO',1),(2,'PUTUMAYO',1),(3,'HUILA',1),(4,'CATALUÑA',2),(5,'FLORIDA',3),(6,'NARIÑO',1),(7,'PUTUMAYO',1),(8,'HUILA',1),(9,'CATALUÑA',2),(10,'FLORIDA',3),(11,'NARIÑO',1),(12,'PUTUMAYO',1),(13,'HUILA',1),(14,'CATALUÑA',2),(15,'FLORIDA',3);
+/*!40000 ALTER TABLE `departamento` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-06 21:10:42
+-- Dump completed on 2024-09-06 22:07:56

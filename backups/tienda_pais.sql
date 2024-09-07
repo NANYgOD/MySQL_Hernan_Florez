@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: localhost    Database: super_tienda
+-- Host: localhost    Database: tienda
 -- ------------------------------------------------------
 -- Server version	8.3.0
 
@@ -16,29 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `departamento`
+-- Table structure for table `pais`
 --
 
-DROP TABLE IF EXISTS `departamento`;
+DROP TABLE IF EXISTS `pais`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `departamento` (
-  `iddepartamento` int NOT NULL AUTO_INCREMENT,
-  `departamento` varchar(30) DEFAULT NULL,
-  `idpais` int DEFAULT NULL,
-  PRIMARY KEY (`iddepartamento`),
-  KEY `idpais` (`idpais`),
-  CONSTRAINT `departamento_ibfk_1` FOREIGN KEY (`idpais`) REFERENCES `pais` (`idpais`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `pais` (
+  `idpais` int NOT NULL AUTO_INCREMENT,
+  `pais` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`idpais`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `departamento`
+-- Dumping data for table `pais`
 --
 
-LOCK TABLES `departamento` WRITE;
-/*!40000 ALTER TABLE `departamento` DISABLE KEYS */;
-/*!40000 ALTER TABLE `departamento` ENABLE KEYS */;
+LOCK TABLES `pais` WRITE;
+/*!40000 ALTER TABLE `pais` DISABLE KEYS */;
+INSERT INTO `pais` VALUES (1,'Colombia'),(2,'España'),(3,'Estados Unidos'),(4,'Colombia'),(5,'España'),(6,'Estados Unidos'),(7,'Colombia'),(8,'España'),(9,'Estados Unidos');
+/*!40000 ALTER TABLE `pais` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-06 21:10:42
+-- Dump completed on 2024-09-06 22:07:57

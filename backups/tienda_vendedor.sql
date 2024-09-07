@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: localhost    Database: super_tienda
+-- Host: localhost    Database: tienda
 -- ------------------------------------------------------
 -- Server version	8.3.0
 
@@ -35,7 +35,7 @@ CREATE TABLE `vendedor` (
   KEY `idmunicipio` (`idmunicipio`),
   CONSTRAINT `vendedor_ibfk_1` FOREIGN KEY (`idtipo_documento`) REFERENCES `tipo_documento` (`idtipo_documento`),
   CONSTRAINT `vendedor_ibfk_2` FOREIGN KEY (`idmunicipio`) REFERENCES `municipio` (`idmunicipio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,6 +44,7 @@ CREATE TABLE `vendedor` (
 
 LOCK TABLES `vendedor` WRITE;
 /*!40000 ALTER TABLE `vendedor` DISABLE KEYS */;
+INSERT INTO `vendedor` VALUES (1,1,'111222333','Carlos','Rodriguez',3,'1990-12-15'),(2,2,'222333444','Katerine','Galindo',3,'2000-12-15'),(3,2,'333444555','Angela','Samboni',1,'2000-12-15'),(4,1,'111222333','Carlos','Rodriguez',3,'1990-12-15'),(5,2,'222333444','Katerine','Galindo',3,'2000-12-15'),(6,2,'333444555','Angela','Samboni',1,'2000-12-15'),(7,1,'111222333','Carlos','Rodriguez',3,'1990-12-15'),(8,2,'222333444','Katerine','Galindo',3,'2000-12-15'),(9,2,'333444555','Angela','Samboni',1,'2000-12-15');
 /*!40000 ALTER TABLE `vendedor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-06 21:10:42
+-- Dump completed on 2024-09-06 22:07:56

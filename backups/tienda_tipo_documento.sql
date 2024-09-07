@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: localhost    Database: super_tienda
+-- Host: localhost    Database: tienda
 -- ------------------------------------------------------
 -- Server version	8.3.0
 
@@ -16,34 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cliente`
+-- Table structure for table `tipo_documento`
 --
 
-DROP TABLE IF EXISTS `cliente`;
+DROP TABLE IF EXISTS `tipo_documento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cliente` (
-  `idcliente` int NOT NULL AUTO_INCREMENT,
-  `idtipo_documento` int DEFAULT NULL,
-  `documento` varchar(30) DEFAULT NULL,
-  `nombre` varchar(30) DEFAULT NULL,
-  `apellido` varchar(30) DEFAULT NULL,
-  `idmunicipio` int DEFAULT NULL,
-  PRIMARY KEY (`idcliente`),
-  KEY `idtipo_documento` (`idtipo_documento`),
-  KEY `idmunicipio` (`idmunicipio`),
-  CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`idtipo_documento`) REFERENCES `tipo_documento` (`idtipo_documento`),
-  CONSTRAINT `cliente_ibfk_2` FOREIGN KEY (`idmunicipio`) REFERENCES `municipio` (`idmunicipio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `tipo_documento` (
+  `idtipo_documento` int NOT NULL AUTO_INCREMENT,
+  `tipo_documento` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`idtipo_documento`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cliente`
+-- Dumping data for table `tipo_documento`
 --
 
-LOCK TABLES `cliente` WRITE;
-/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+LOCK TABLES `tipo_documento` WRITE;
+/*!40000 ALTER TABLE `tipo_documento` DISABLE KEYS */;
+INSERT INTO `tipo_documento` VALUES (1,'TI'),(2,'CC'),(3,'CE'),(4,'PASAPORTE'),(5,'TI'),(6,'CC'),(7,'CE'),(8,'PASAPORTE'),(9,'TI'),(10,'CC'),(11,'CE'),(12,'PASAPORTE');
+/*!40000 ALTER TABLE `tipo_documento` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-06 21:10:42
+-- Dump completed on 2024-09-06 22:07:56
