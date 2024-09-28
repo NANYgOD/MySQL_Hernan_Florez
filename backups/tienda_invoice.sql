@@ -16,30 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `departamento`
+-- Table structure for table `invoice`
 --
 
-DROP TABLE IF EXISTS `departamento`;
+DROP TABLE IF EXISTS `invoice`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `departamento` (
-  `iddepartamento` int NOT NULL AUTO_INCREMENT,
-  `departamento` varchar(30) DEFAULT NULL,
-  `idpais` int DEFAULT NULL,
-  PRIMARY KEY (`iddepartamento`),
-  KEY `idpais` (`idpais`),
-  CONSTRAINT `departamento_ibfk_1` FOREIGN KEY (`idpais`) REFERENCES `pais` (`idpais`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `invoice` (
+  `id_invoice` int NOT NULL AUTO_INCREMENT,
+  `invoice_date` date DEFAULT NULL,
+  `id_seller` int DEFAULT NULL,
+  `id_customer` int DEFAULT NULL,
+  PRIMARY KEY (`id_invoice`),
+  KEY `id_seller` (`id_seller`),
+  KEY `id_customer` (`id_customer`),
+  CONSTRAINT `invoice_ibfk_1` FOREIGN KEY (`id_seller`) REFERENCES `seller` (`id_seller`),
+  CONSTRAINT `invoice_ibfk_2` FOREIGN KEY (`id_customer`) REFERENCES `customer` (`id_customer`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `departamento`
+-- Dumping data for table `invoice`
 --
 
-LOCK TABLES `departamento` WRITE;
-/*!40000 ALTER TABLE `departamento` DISABLE KEYS */;
-INSERT INTO `departamento` VALUES (1,'NARIÑO',1),(2,'PUTUMAYO',1),(3,'HUILA',1),(4,'CATALUÑA',2),(5,'FLORIDA',3),(6,'NARIÑO',1),(7,'PUTUMAYO',1),(8,'HUILA',1),(9,'CATALUÑA',2),(10,'FLORIDA',3),(11,'NARIÑO',1),(12,'PUTUMAYO',1),(13,'HUILA',1),(14,'CATALUÑA',2),(15,'FLORIDA',3);
-/*!40000 ALTER TABLE `departamento` ENABLE KEYS */;
+LOCK TABLES `invoice` WRITE;
+/*!40000 ALTER TABLE `invoice` DISABLE KEYS */;
+INSERT INTO `invoice` VALUES (1,'2020-01-15',1,1),(2,'2020-01-16',1,2);
+/*!40000 ALTER TABLE `invoice` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-06 22:07:56
+-- Dump completed on 2024-09-27 21:49:14

@@ -16,27 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tipo_producto`
+-- Table structure for table `seller`
 --
 
-DROP TABLE IF EXISTS `tipo_producto`;
+DROP TABLE IF EXISTS `seller`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tipo_producto` (
-  `idtipo_producto` int NOT NULL AUTO_INCREMENT,
-  `tipo_producto` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`idtipo_producto`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `seller` (
+  `id_seller` int NOT NULL AUTO_INCREMENT,
+  `id_document_type` int DEFAULT NULL,
+  `document_number` varchar(30) DEFAULT NULL,
+  `first_name` varchar(30) DEFAULT NULL,
+  `last_name` varchar(30) DEFAULT NULL,
+  `id_city` int DEFAULT NULL,
+  `birth_date` date DEFAULT NULL,
+  PRIMARY KEY (`id_seller`),
+  KEY `id_document_type` (`id_document_type`),
+  KEY `id_city` (`id_city`),
+  CONSTRAINT `seller_ibfk_1` FOREIGN KEY (`id_document_type`) REFERENCES `document_type` (`id_document_type`),
+  CONSTRAINT `seller_ibfk_2` FOREIGN KEY (`id_city`) REFERENCES `city` (`id_city`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tipo_producto`
+-- Dumping data for table `seller`
 --
 
-LOCK TABLES `tipo_producto` WRITE;
-/*!40000 ALTER TABLE `tipo_producto` DISABLE KEYS */;
-INSERT INTO `tipo_producto` VALUES (1,'carnico'),(2,'grano'),(3,'lacteo'),(4,'mecato'),(5,'aseo general'),(6,'aseo personal'),(7,'cosmetico'),(8,'carnico'),(9,'grano'),(10,'lacteo'),(11,'mecato'),(12,'aseo general'),(13,'aseo personal'),(14,'cosmetico'),(15,'carnico'),(16,'grano'),(17,'lacteo'),(18,'mecato'),(19,'aseo general'),(20,'aseo personal'),(21,'cosmetico');
-/*!40000 ALTER TABLE `tipo_producto` ENABLE KEYS */;
+LOCK TABLES `seller` WRITE;
+/*!40000 ALTER TABLE `seller` DISABLE KEYS */;
+INSERT INTO `seller` VALUES (1,1,'111222333','Carlos','Rodriguez',3,'1990-12-15'),(2,2,'222333444','Katerine','Galindo',3,'2000-12-15'),(3,2,'333444555','Angela','Samboni',1,'2000-12-15');
+/*!40000 ALTER TABLE `seller` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-06 22:07:56
+-- Dump completed on 2024-09-27 21:49:13

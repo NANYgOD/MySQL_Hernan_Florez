@@ -16,27 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `pais`
+-- Table structure for table `customer`
 --
 
-DROP TABLE IF EXISTS `pais`;
+DROP TABLE IF EXISTS `customer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `pais` (
-  `idpais` int NOT NULL AUTO_INCREMENT,
-  `pais` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`idpais`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `customer` (
+  `id_customer` int NOT NULL AUTO_INCREMENT,
+  `id_document_type` int DEFAULT NULL,
+  `document_number` varchar(30) DEFAULT NULL,
+  `first_name` varchar(30) DEFAULT NULL,
+  `last_name` varchar(30) DEFAULT NULL,
+  `id_city` int DEFAULT NULL,
+  PRIMARY KEY (`id_customer`),
+  KEY `id_document_type` (`id_document_type`),
+  KEY `id_city` (`id_city`),
+  CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`id_document_type`) REFERENCES `document_type` (`id_document_type`),
+  CONSTRAINT `customer_ibfk_2` FOREIGN KEY (`id_city`) REFERENCES `city` (`id_city`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `pais`
+-- Dumping data for table `customer`
 --
 
-LOCK TABLES `pais` WRITE;
-/*!40000 ALTER TABLE `pais` DISABLE KEYS */;
-INSERT INTO `pais` VALUES (1,'Colombia'),(2,'España'),(3,'Estados Unidos'),(4,'Colombia'),(5,'España'),(6,'Estados Unidos'),(7,'Colombia'),(8,'España'),(9,'Estados Unidos');
-/*!40000 ALTER TABLE `pais` ENABLE KEYS */;
+LOCK TABLES `customer` WRITE;
+/*!40000 ALTER TABLE `customer` DISABLE KEYS */;
+INSERT INTO `customer` VALUES (1,1,'111111111','BRIGITE','FUEL',1),(2,1,'222222222','SANDRA','GUALGUAN',1),(3,2,'333333333','YEIMI','ARGOTI',1),(4,2,'444444444','ANDRES','BARRERA',1),(5,2,'555555555','HECTOR','MADROÑERO',2);
+/*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-06 22:07:57
+-- Dump completed on 2024-09-27 21:49:14

@@ -16,27 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tipo_documento`
+-- Table structure for table `city`
 --
 
-DROP TABLE IF EXISTS `tipo_documento`;
+DROP TABLE IF EXISTS `city`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tipo_documento` (
-  `idtipo_documento` int NOT NULL AUTO_INCREMENT,
-  `tipo_documento` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`idtipo_documento`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `city` (
+  `id_city` int NOT NULL AUTO_INCREMENT,
+  `city_name` varchar(30) DEFAULT NULL,
+  `id_state` int DEFAULT NULL,
+  PRIMARY KEY (`id_city`),
+  KEY `id_state` (`id_state`),
+  CONSTRAINT `city_ibfk_1` FOREIGN KEY (`id_state`) REFERENCES `state` (`id_state`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tipo_documento`
+-- Dumping data for table `city`
 --
 
-LOCK TABLES `tipo_documento` WRITE;
-/*!40000 ALTER TABLE `tipo_documento` DISABLE KEYS */;
-INSERT INTO `tipo_documento` VALUES (1,'TI'),(2,'CC'),(3,'CE'),(4,'PASAPORTE'),(5,'TI'),(6,'CC'),(7,'CE'),(8,'PASAPORTE'),(9,'TI'),(10,'CC'),(11,'CE'),(12,'PASAPORTE');
-/*!40000 ALTER TABLE `tipo_documento` ENABLE KEYS */;
+LOCK TABLES `city` WRITE;
+/*!40000 ALTER TABLE `city` DISABLE KEYS */;
+INSERT INTO `city` VALUES (1,'PASTO',1),(2,'SAMANIEGO',1),(3,'MOCOA',2),(4,'VILLAGARZON',2),(5,'PITALITO',3),(6,'NEIVA',3),(7,'BARCELONA',4),(8,'MIAMI',5);
+/*!40000 ALTER TABLE `city` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-06 22:07:56
+-- Dump completed on 2024-09-27 21:49:13
